@@ -1,0 +1,13 @@
+*,
+*::before,
+*::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.app {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}

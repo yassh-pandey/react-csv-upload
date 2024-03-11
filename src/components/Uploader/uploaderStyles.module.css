@@ -1,0 +1,76 @@
+.container {
+    background-color: white;
+}
+.dndZone {
+    border: 2px dashed rgb(222, 228, 240);
+    width: 400px;
+    height: 100px;
+    background-color: rgb(245, 246, 250);
+    text-align: center;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+.dndZone:hover {
+    background-color: rgb(245, 246, 250, 0.3);
+}
+.valid-file-drop {
+    cursor: copy;
+    border: 2px dashed hsl(142.1 76.2% 36.3%);
+}
+.invalid-file-drop {
+    cursor: not-allowed;
+    border: 2px dashed hsl(0 72.22% 50.59% / 1);
+}
+.fileSelectorFormWrapper {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.fileSelector {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.buttonGroup {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.button {
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 1.0625rem;
+    color: white;
+    padding: 10px 16px;
+    cursor: pointer;
+    margin: 16px 0px;
+    display: block;
+    box-shadow: none;
+    border: none;
+}
+.uploadButton {
+    background-color: rgb(104, 117, 226);
+    border: 1px solid rgb(222, 228, 240);
+}
+.buttonDisabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+:not(.buttonDisabled).uploadButton:hover {
+    background-color: rgb(104, 117, 226, 0.9);
+}
+.resetButton {
+    background-color: hsl(346.8 77.2% 49.8%);
+}
+:not(.buttonDisabled).resetButton:hover {
+    background-color: hsl(346.8deg 77.2% 49.8% / 90%);
+}
