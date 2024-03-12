@@ -1,4 +1,4 @@
-import { UploadProvider, Uploader, DisplayGrid } from './components';
+import { UploadProvider, Uploader, DisplayGrid } from '../lib/components';
 // import './App.css';
 
 function App() {
