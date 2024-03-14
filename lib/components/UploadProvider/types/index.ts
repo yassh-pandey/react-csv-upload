@@ -4,6 +4,8 @@ import { Id, ToastOptions, ToastContent } from 'react-toastify';
 export interface UploadProviderProps {
     children: ReactNode;
     access_key: string;
+    file_exists_endpoint: string;
+    upload_endpoint: string;
 }
 
 export interface ParsingProgress {
@@ -31,4 +33,6 @@ export interface UploadContextType {
     notify: (content: ToastContent, data: ToastOptions) => Id;
     dismiss: (id: Id) => void;
     dismissAll: () => void;
+    upload_endpoint: string;
+    file_exists_endpoint: string;
 }

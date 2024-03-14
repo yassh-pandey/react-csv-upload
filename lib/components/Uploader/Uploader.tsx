@@ -43,7 +43,7 @@ const Uploader = function (props: UploaderProps) {
     const checkIfFileAlreadyExists = async function (fileName: string): Promise<boolean> {
         setCheckingFileExists(true);
         try {
-            const url = new URL('http://localhost:3000/file-exists');
+            const url = new URL(file_exists_endpoint);
             url.searchParams.append('access_key', access_key);
             url.searchParams.append('file_name', fileName);
             const response = await fetch(url?.href);
@@ -176,7 +176,7 @@ const Uploader = function (props: UploaderProps) {
         }
         // Create a new tus upload
         uploadControllerRef.current = new tus.Upload(file, {
-            endpoint: 'http://localhost:3000/uploads/',
+            endpoint: upload_endpoint,
             retryDelays: null,
             removeFingerprintOnSuccess: true,
             metadata: {
@@ -359,7 +359,8 @@ const Uploader = function (props: UploaderProps) {
     const [checkingFileExists, setCheckingFileExists] = useState<boolean>(false);
     const [fileUploadInProgress, setFileUploadInProgress] = useState<UploadProgress>(DEFAULT_UPLOAD_PROGRESS);
     const [fileName, setFileName] = useState<string>('');
-    const { parsingState, setParsingState, access_key, notify, dismissAll } = useUploadContext();
+    const { parsingState, setParsingState, access_key, notify, dismissAll, file_exists_endpoint, upload_endpoint } =
+        useUploadContext();
     const parserReference = useRef<Parser | null>(null);
     const resetCalled = useRef<boolean>(false);
     const dndZoneRef = useRef<HTMLDivElement | null>(null);

@@ -8,7 +8,7 @@ const UploadContext = createContext<UploadContextType | undefined>(undefined);
 const TOAST_CONTAINER_ID = 'UploadProvider';
 
 const UploadProvider: React.FC<UploadProviderProps> = (props) => {
-    const { access_key, children } = props;
+    const { access_key, children, file_exists_endpoint, upload_endpoint } = props;
 
     const [parsingState, setParsingState] = useState<ParsingProgress>(DEFAULT_PARSING_PROGRESS_STATUS);
     const notify = useCallback((content: ToastContent, data: ToastOptions) => {
@@ -46,6 +46,8 @@ const UploadProvider: React.FC<UploadProviderProps> = (props) => {
         notify,
         dismiss,
         dismissAll,
+        file_exists_endpoint,
+        upload_endpoint,
     };
 
     return (

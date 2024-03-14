@@ -22,7 +22,11 @@ import {
 function CsvUploadSection() {
   return (
     <>
-      <UploadProvider access_key={your_access_key}>
+      <UploadProvider
+        access_key={your_access_key}
+        file_exists_endpoint={endpoint_to_check_if_the_file_exists}
+        upload_endpoint={endpoint_implementing_tus_protocol_for_file_upload}
+      >
         <div className="upload-section-container">
           <Uploader />
           <DisplayGrid
@@ -50,10 +54,14 @@ export default CsvUploadSection;
     This is the place where you will specify your `access_key`.
     Please refer to the [csv-uploader-api](https://github.com/yassh-pandey/csv-uploader-api) repo to know more about how to generate an `access_key` for your project.
 
+    In you are running the [csv-uploader-api](https://github.com/yassh-pandey/csv-uploader-api) on your localhost on port 3000 then `file_exists_endpoint` will be `http://localhost:3000/file-exists` and `upload_endpoint` will be `http://localhost:3000/uploads` for you.
+
     ```typescript
     interface UploadProviderProps {
         children: ReactNode;
         access_key: string;
+        file_exists_endpoint: string;
+        upload_endpoint: string;
     }
     ```
 
